@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component ,ViewChild } from '@angular/core';
 import { OnInit } from '@angular/core';
+import { TabsComponent } from './tab/tabs.component';
+
 
 @Component({
   selector: 'app-root',
@@ -35,13 +37,6 @@ export class AppComponent implements OnInit{
       // allowSearchFilter: true
     };
   }
-  // onItemSelect (item:any) {
-  //   console.log(item);
-  // }
-  // onSelectAll (items: any) {
-  //   console.log(items);
-  // }
-
   onItemSelect (item:any) {
     if(item.item_text == 'Range Detection'){
       this.rangeDetect = true;
