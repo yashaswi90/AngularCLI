@@ -8,16 +8,18 @@ import { OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit{
   title = 'SampleApplication';
+  rangeDetect = false;
+  jumpDetect = false;
   dropdownList = [];
   selectedItems = [];
   dropdownSettings = {};
   ngOnInit () {
     this.dropdownList = [
-      { item_id: 1, item_text: 'Mumbai' },
-      { item_id: 2,item_text: 'Bangaluru' },
-      { item_id: 3,item_text: 'Pune' },
-      { item_id: 4,item_text: 'Navsari' },
-      { item_id: 5, item_text: 'New Delhi' }
+      { item_id: 1, item_text: 'Range Detection' },
+      { item_id: 2,item_text: 'Jump Detection' },
+      { item_id: 3,item_text: 'Noise Detection' },
+      { item_id: 4,item_text: 'Bias Detection' },
+      { item_id: 5, item_text: 'Gaps Detection' }
     ];
     this.selectedItems = [
       // { item_text: 'Pune' },
@@ -33,7 +35,30 @@ export class AppComponent implements OnInit{
       // allowSearchFilter: true
     };
   }
+  // onItemSelect (item:any) {
+  //   console.log(item);
+  // }
+  // onSelectAll (items: any) {
+  //   console.log(items);
+  // }
+
   onItemSelect (item:any) {
+    if(item.item_text == 'Range Detection'){
+      this.rangeDetect = true;
+    }
+    if(item.item_text == 'Jump Detection'){
+      this.jumpDetect = true;
+    }
+    console.log(item);
+  }
+
+  onItemDeSelect (item: any){
+    if(item.item_text == 'Range Detection'){
+      this.rangeDetect = false;
+    }
+    if(item.item_text == 'Jump Detection'){
+      this.jumpDetect = false;
+    }
     console.log(item);
   }
   onSelectAll (items: any) {
