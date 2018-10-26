@@ -9,6 +9,8 @@ import { TabsComponent } from './tab/tabs.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
+  done=false;
+  selectedValue = Array<{text: string}>();
   title = 'SampleApplication';
   rangeDetect = false;
   jumpDetect = false;
@@ -45,6 +47,8 @@ export class AppComponent implements OnInit{
       this.jumpDetect = true;
     }
     console.log(item);
+    this.selectedValue.push(item.item_text);
+    this.done=true;
   }
 
   onItemDeSelect (item: any){
@@ -55,8 +59,10 @@ export class AppComponent implements OnInit{
       this.jumpDetect = false;
     }
     console.log(item);
+    this.done=false;
   }
   onSelectAll (items: any) {
     console.log(items);
   }
+  
 }
