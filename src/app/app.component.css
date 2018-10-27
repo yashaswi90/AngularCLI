@@ -9,13 +9,15 @@
     font-weight: 700;
     border: 3px;
     margin: auto;
+  
    
 }
 .demo-tab-group {
   border: 1px solid #141212;
   background-color:rgb(182, 171, 171);
   font-size: 700;
-
+    text-decoration: underline;
+    margin-right: 100px;
 }
 
 .demo-tab-content {

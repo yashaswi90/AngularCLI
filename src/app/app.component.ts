@@ -10,7 +10,8 @@ import { TabsComponent } from './tab/tabs.component';
 })
 export class AppComponent implements OnInit{
   done=false;
-  selectedValue = Array<{text: string}>();
+  public selectedValue=new Set<String>();
+  // selectedValue = Array<{text: string}>();
   title = 'SampleApplication';
   rangeDetect = false;
   jumpDetect = false;
@@ -47,7 +48,7 @@ export class AppComponent implements OnInit{
       this.jumpDetect = true;
     }
     console.log(item);
-    this.selectedValue.push(item.item_text);
+    this.selectedValue.add(item.item_text);
     this.done=true;
   }
 
