@@ -1,0 +1,30 @@
+  p{
+      font-family: Arial, Helvetica, sans-serif
+  }
+  .mat-tab-label {
+    min-width: 100px !important;
+    padding: 5px;
+    background-color:transparent;
+    color: black;
+    font-weight: 700;
+    border: 3px;
+    margin: auto;
+   
+}
+.demo-tab-group {
+  border: 1px solid #141212;
+  background-color:rgb(182, 171, 171);
+  font-size: 700;
+
+}
+
+.demo-tab-content {
+  padding: 16px;
+}
+
+.mat-tab-label-active{
+  background-color: red ;
+  opacity: 1 !important;
+}
+
+  

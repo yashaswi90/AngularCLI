@@ -3,22 +3,18 @@
   <h1>
     Welcome to {{ title }}!
   </h1>
+  <br/>
   <!-- <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="> -->
 </div>
-<div style="width:50%">
-<ng-multiselect-dropdown
-  [placeholder]="'custom placeholder'"
-  [data]="dropdownList"
-  [(ngModel)]="selectedItems"
-  [settings]="dropdownSettings"
-  (onSelect)="onItemSelect($event)"
-  (onDeSelect)="onItemDeSelect($event)"
-  (onSelectAll)="onSelectAll($event)"
->
-</ng-multiselect-dropdown>
+<div style="width:60%;background-color: beige">
+  <ng-multiselect-dropdown [placeholder]="'custom placeholder'" [data]="dropdownList" [(ngModel)]="selectedItems"
+    [settings]="dropdownSettings" (onSelect)="onItemSelect($event)" (onDeSelect)="onItemDeSelect($event)" (onSelectAll)="onSelectAll($event)">
+  </ng-multiselect-dropdown>
 </div>
+<br/>
+<br/>
 
-<div *ngIf="rangeDetect" class="rangeDetect">
+<!-- <div *ngIf="rangeDetect" class="rangeDetect">
   <h3 class="first">Min range</h3>
   <input id="input" type="text" size="20" name="" [(ngModel)]="text1" />
   <span id="text">{{text1}}</span>
@@ -27,17 +23,15 @@
   <input id="input" type="text" size="20" name="" [(ngModel)]="text2" />
   <span id="text">{{text2}}</span>
 </div>
-  
-  <div *ngIf="jumpDetect" class="jumpDetect">
-    <h3 class="first">WindowSize</h3>
-    <input id="input" type="text" size="20" name="" [(ngModel)]="text3">
-    <span id="text3"></span>
-  </div>
 
-  <div class="row">
-      <div class="col-xs-12">
-        <!-- use the custom element! -->  
-    <div  *ngIf="done" class="done">
+<div *ngIf="jumpDetect" class="jumpDetect">
+  <h3 class="first">WindowSize</h3>
+  <input id="input" type="text" size="20" name="" [(ngModel)]="text3">
+  <span id="text3"></span>
+</div> -->
+
+
+<!-- <div  *ngIf="done" class="done">
       <div *ngFor="let usecase of selectedValue">
         <my-tabs>
           <my-tab [tabTitle]=usecase active=true>
@@ -73,7 +67,119 @@
       </div>
       <input type="submit" value="Submit">
     </div>
-    </div>
-    </div>
+    -->
+
+
+<!-- <p-accordion >
+        <p-accordionTab *ngFor="let usecase of selectedValue">{{usecase}}</p-accordionTab>
+    </p-accordion> -->
+<!-- 
+    <mat-nav-list>
+    <mat-list-item>
+<div *ngFor="let usecase of selectedValue">{{usecase}}</div>
+
+    </mat-list-item>
+    </mat-nav-list> -->
+
+<!-- <mat-tab-group>
+        <mat-tab *ngFor="let tab of selectedValue">
+          <ng-template mat-tab-label>{{tab}}</ng-template>
+          <div *ngIf="usecase=='Range Detection'">
+              <mat-form-field>
+                Lower Limit<input matInput placeholder="searcg" type="text"><br /> -->
+<!-- Upper Limit<mat-input type="text"><br /> -->
+<!-- Target Variable<mat-input type="text"><br /><br /> -->
+<!-- </mat-form-field>
+            </div>
+        </mat-tab>
+      </mat-tab-group> -->
+<div class="mat-tab-label">
+<mat-tab-group style="background: rgb(231, 182, 182);" class="demo-tab-group">
+  <mat-tab *ngFor="let tab of selectedValue ">
+    <ng-template mat-tab-label>{{tab}}</ng-template>
+    <form  *ngIf="tab=='Range Detection'" class="example-form">
+      <mat-form-field  appearance="outline">
+        <br />
+        <!-- <mat-label></mat-label> -->
+        <input matInput placeholder="Window Radius" [(ngModel)]="windowRadius" [ngModelOptions]="{standalone: true}">
+
+      </mat-form-field>
+
+      <br />
+      <mat-form-field appearance="outline">
+        <br />
+        <!-- <mat-label></mat-label> -->
+        <input matInput placeholder="Upper Limit">
+      </mat-form-field>
+    </form>
+
+    <form *ngIf="tab=='Jump Detection'" class="example-form">
+        <mat-form-field appearance="outline">
+          <br />
+          <!-- <mat-label></mat-label> -->
+          <input matInput placeholder="Window Radius" [(ngModel)]="windowRadius" [ngModelOptions]="{standalone: true}">
+  
+        </mat-form-field>
+  
+        <br />
+        <mat-form-field appearance="outline">
+          <br />
+          <!-- <mat-label></mat-label> -->
+          <input matInput placeholder="Upper Limit">
+        </mat-form-field>
+      </form>
+
+      <form *ngIf="tab=='Range Detection'" class="example-form">
+          <mat-form-field appearance="outline">
+            <br />
+            <!-- <mat-label></mat-label> -->
+            <input matInput placeholder="Window Radius" [(ngModel)]="windowRadius" [ngModelOptions]="{standalone: true}">
+    
+          </mat-form-field>
+    
+          <br />
+          <mat-form-field appearance="outline">
+            <br />
+            <!-- <mat-label></mat-label> -->
+            <input matInput placeholder="Upper Limit">
+          </mat-form-field>
+        </form>
+
+        <form *ngIf="tab=='Bias Detection'">
+            <mat-form-field appearance="outline">
+              <br />
+              <!-- <mat-label></mat-label> -->
+              <input matInput placeholder="Window Radius" [(ngModel)]="windowRadius" [ngModelOptions]="{standalone: true}">
+      
+            </mat-form-field>
+      
+            <br />
+            <mat-form-field appearance="outline">
+              <br />
+              <!-- <mat-label></mat-label> -->
+              <input matInput placeholder="Upper Limit">
+            </mat-form-field>
+          </form>
+
+
+          <form *ngIf="tab=='Noise Detection'">
+              <mat-form-field appearance="outline">
+                <br />
+                <!-- <mat-label></mat-label> -->
+                <input matInput placeholder="Window Radius" [(ngModel)]="windowRadius" [ngModelOptions]="{standalone: true}">
+        
+              </mat-form-field>
+        
+              <br />
+              <mat-form-field appearance="outline">
+                <br />
+                <!-- <mat-label></mat-label> -->
+                <input matInput placeholder="Upper Limit">
+              </mat-form-field>
+            </form>
+  </mat-tab>
+</mat-tab-group>
+</div>
+
 
 <router-outlet></router-outlet>

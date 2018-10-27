@@ -29,7 +29,7 @@ import {
     styles: [
       `
       .tab-close {
-        color: gray;
+        color: black;
         text-align: right;
         cursor: pointer;
       }
