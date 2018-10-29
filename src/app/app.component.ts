@@ -24,7 +24,9 @@ export class AppComponent implements OnInit{
       { item_id: 2,item_text: 'Jump Detection' },
       { item_id: 3,item_text: 'Noise Detection' },
       { item_id: 4,item_text: 'Bias Detection' },
-      { item_id: 5, item_text: 'Gaps Detection' }
+      { item_id: 5,item_text: 'Gaps Detection' },
+      { item_id: 6,item_text: 'Gaps and Interpolate Detection' },
+      { item_id: 7, item_text: 'Spikes Detection' }
     ];
     this.selectedItems = [
       // { item_text: 'Pune' },
